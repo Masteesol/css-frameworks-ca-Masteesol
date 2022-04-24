@@ -1,0 +1,43 @@
+@use "sass:map";
+@import "../partials/colors";
+
+.tabs .nav-link {
+    color: map.get($theme-colors, "main");
+    &.--active {
+        color: map.get($theme-colors, "main-active");
+    }
+}
+.tabs .tab-content {
+    background-color: white;
+}
+.accordion-button {
+    color: map.get($theme-colors, "main");
+    &[aria-expanded="true"]{
+        @extend .accordion-button;
+        background-color: map.get($theme-colors, "general-bg-light");
+        border-bottom: solid 3px map.get($theme-colors, "main");
+    }
+    &:focus {
+        box-shadow: 0 0 0 0.25rem map.get($theme-colors, "main-outline");
+    }
+    
+} 
+
+.carousel-indicators [data-bs-target] {
+   background-color:  white;
+   height: 2rem;
+   width: 2rem;
+   opacity: 1;
+   &.active {
+    background-color:  map.get($theme-colors, "main");  
+   }
+}
+.carousel-image {
+    width: 50;
+}
+@include media-breakpoint-up(lg) { 
+    .carousel-image{
+        width: 100%!important;
+    }
+
+ }

@@ -1,0 +1,41 @@
+@use "sass:map";
+@import "./partials/colors";
+@import "./partials/typography";
+
+
+/*fonts*/
+h1, .navbar-brand {
+    font-family: $font-heading;
+    color: map.get($theme-colors, "main")!important;
+}
+
+* {
+    font-family: $font-general;
+}
+
+/*bg for navbar, footer and body/container*/
+
+.navbar {
+    background-color: map.get($theme-colors, "nav")!important;
+}
+.footer {
+    background-color: map.get($theme-colors, "footer")!important;
+}
+
+.main-container {
+    background: radial-gradient(ellipse, map.get($theme-colors, "body", "color1"), 
+    map.get($theme-colors, "body", "color2")
+    )
+}
+
+/*bg buttons*/
+
+.btn-primary, .btn-primary:hover, .btn-outline-success {
+    background-color: map.get($theme-colors, "main");
+    border-color: map.get($theme-colors, "main");
+    color: white;
+    &:hover, &:focus {
+        background-color: map.get($theme-colors, "main-active");
+        border-color: map.get($theme-colors, "main-active");
+    }
+}

@@ -1,0 +1,12 @@
+@use "sass:map";
+@import "./colors";
+
+/*custom inline utility classes*/
+
+.general-text {
+    color: map.get($theme-colors, "general-text");
+ }
+ .sub-heading-text {
+     color: map.get($theme-colors, "sub-heading");
+ }
+ 

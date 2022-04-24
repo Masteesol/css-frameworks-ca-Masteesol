@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import Container from "react-bootstrap/Container";
+import { Routes, Route } from "react-router-dom";
+import Contact from "./components/pages/contact/Contact.js";
+import News from "./components/pages/news/News.js";
+import Home from "./components/pages/home/Home.js";
+import Nav from "./components/layout/Nav.js";
+import Footer from "./components/layout/Footer.js";
+import Heading from "./components/layout/Heading.js";
+import Carousel from "./components/pages/home/Carousel.js";
+import "./sass/styles.scss";
+
+const currentPath = window.location.pathname;
+
+let hideHeader = "";
+let hideCarousel = "";
+
+if (currentPath === "/") {
+  hideHeader = "d-none";
+  hideCarousel = "d-block";
+} else {
+  hideHeader = "d-block";
+  hideCarousel = "d-none";
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container fluid className="main-container p-0">
+      <Nav />
+      <div className={hideCarousel}>
+        <Carousel />
+      </div>
+      <Container md>
+        <div className={hideHeader} style={{ paddingTop: "5em" }}>
+          <Heading />
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="news" element={<News />} />
+        </Routes>
+      </Container>
+      <Footer />
+    </Container>
   );
 }
 

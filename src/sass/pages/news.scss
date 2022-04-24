@@ -1,0 +1,13 @@
+@use "sass:map";
+@import "../partials/colors";
+
+.active.page-item .page-link{
+    background-color: map.get($theme-colors,"main");
+    border-color: map.get($theme-colors,"main");
+}
+
+.page-item .page-link{
+    background-color: white;
+    color: map.get($theme-colors,"main");
+    border-color: map.get($theme-colors,"main");
+}
